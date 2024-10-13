@@ -2,14 +2,19 @@
 
 import Image from "next/image";
 import Link from "next/link"
-import { useParams } from "next/navigation"
+import { useParams, useRouter  } from "next/navigation"
 
 export default function Component() {
 
+  const router = useRouter()
   const params = useParams();
   const tenant = params.subdomain;
   console.log(tenant)
 
+  const hostname = typeof window !== 'undefined' && window.location.hostname ? window.location.hostname : '';
+const origin = typeof window !== 'undefined' && window.location.origin ? window.location.origin : '';
+
+console.log({hostname, origin})
   return (
     <div className="flex flex-col min-h-screen">
       <header className="px-4 lg:px-6 h-14 flex items-center justify-between">

@@ -11,9 +11,9 @@ export const config = {
 export default async function middleware(req) {
   const url = req.nextUrl;
   const hostname = req.headers.get("host");
-
+  console.log({hostname, url})
   // Se define una lista de dominios permitidos (incluyendo localhost y el dominio real)
-  const allowedDomains = ["localhost:3000", "tudominio.com", "multitenant-theta.vercel.app"];
+  const allowedDomains = ["localhost:3001", "momentify.id", "tudominio.com", "multitenant-theta.vercel.app"];
 
   // Verificamos si el hostname actual está en la lista de dominios permitidos
   const isAllowedDomain = allowedDomains.some(domain => hostname.includes(domain));
